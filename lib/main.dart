@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:top_quizz_project/screens/sign_screen/forgot_pwd_screen.dart';
-import 'package:top_quizz_project/screens/sign_screen/sign_in_screen.dart';
-import 'package:top_quizz_project/screens/sign_screen/sign_up_screen.dart';
+import 'package:top_quizz_project/screens/ui/ui.dart';
+//import 'screens/sign/forgot_pwd_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignUpPage(),
+      //home: const ForgotPasswdordPage(),
+      home: const UiScreen(),
     );
   }
 }
