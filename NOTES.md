@@ -7,8 +7,8 @@ Author : [Daniel Leussa](https://github.com/danofred00)
 ## Taches A Faires
 
 Planing: 
-    + Mise en place de la partie Front-End (en cour...)
-    + Mise en place du back-end
++ Mise en place de la partie Front-End (en cour...)
++ Mise en place du back-end
         - Back-end cote client
         - Back-end cote serveur
 
