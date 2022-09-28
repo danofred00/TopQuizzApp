@@ -56,6 +56,7 @@ class _UiHomePageState extends State<UiHomePage> {
           child: QuizzStatsPreviewer(
             username: username,
             email: email,
+            imagePath: 'images/user-default.png',
           ),
         ),
 

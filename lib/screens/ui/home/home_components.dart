@@ -4,24 +4,22 @@ class QuizzStatsPreviewer extends StatelessWidget {
   final String imagePath;
   final String username;
   final String email;
-  const QuizzStatsPreviewer({
-    this.imagePath = '', 
-    required this.username, 
-    required this.email
-  });
-
-  //bool _showImage = image_path.isEmpty ? false : true;
+  const QuizzStatsPreviewer(
+      {this.imagePath = '', required this.username, required this.email});
 
   @override
   Widget build(BuildContext context) {
+    
+    // _showImage var
+    bool _showImage = imagePath.isEmpty ? false : true;
+
     return Row(
       children: [
         // User's Image
+        /*
         Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.black
-          ),
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: Colors.black),
           padding: EdgeInsets.all(3.0),
           margin: EdgeInsets.symmetric(horizontal: 10),
           child: CircleAvatar(
@@ -29,13 +27,15 @@ class QuizzStatsPreviewer extends StatelessWidget {
             child: Text(
               username[0],
               style: TextStyle(
-                  color: Colors.white, fontSize: 60, fontWeight: FontWeight.bold),
+                  color: Colors.white,
+                  fontSize: 60,
+                  fontWeight: FontWeight.bold),
             ),
             radius: 50,
           ),
         ),
 
-        /*
+        */
         Container(
           alignment: Alignment.center,
           width: 100,
@@ -44,12 +44,12 @@ class QuizzStatsPreviewer extends StatelessWidget {
           decoration: BoxDecoration(
               color: Colors.blue,
               shape: BoxShape.circle,
-              image: image_path.isEmpty
+              image: !_showImage
                   ? null
                   : DecorationImage(
-                      image: AssetImage(image_path),
+                      image: AssetImage(imagePath),
                     )),
-          child: image_path.isEmpty
+          child: !_showImage
               ? Text(
                   username[0],
                   style: TextStyle(
@@ -60,28 +60,28 @@ class QuizzStatsPreviewer extends StatelessWidget {
               : null,
         ),
 
-        */
+        //*/
 
         // User's Stats
         Expanded(
             child: Container(
           height: 100,
-          child: Column(            
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(username.toUpperCase(), style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+              Text(
+                username.toUpperCase(),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
               Text(email),
               _itemColumn3(
-                cText: " Nombre de quizz joué(s) : ",
-                bText: "5",
-                iconData: Icons.numbers
-              ),
-
+                  cText: " Nombre de quizz joué(s) : ",
+                  bText: "5",
+                  iconData: Icons.numbers),
               _itemColumn3(
-                cText: " Points accumulés : ",
-                bText: "100",
-                iconData: Icons.account_tree_outlined
-              ),
+                  cText: " Points accumulés : ",
+                  bText: "100",
+                  iconData: Icons.account_tree_outlined),
             ],
           ),
         ))
@@ -90,13 +90,11 @@ class QuizzStatsPreviewer extends StatelessWidget {
   }
 }
 
-
 // QuizzPreviewerBox
 class QuizzPreviewerBox extends StatelessWidget {
-
   final String title;
   final String description;
-  final Function()? onCloseButtonClick; 
+  final Function()? onCloseButtonClick;
   final String category;
   final int questionCount;
   final String difficulty;
@@ -105,17 +103,17 @@ class QuizzPreviewerBox extends StatelessWidget {
   final double height;
   final double elevation;
 
-  // Constructor 
+  // Constructor
   const QuizzPreviewerBox({
-    super.key, 
-    this.width = 150,               // width of the box
-    this.height = 200,              // height of the box
-    this.elevation = 2,             // elevation's Shadow of the box
-    required this.title,            // title of the quizz
-    required this.description,      // description of the quizz
-    required this.category,         // category of the quizz
-    required this.questionCount,   // number of question of the quizz
-    required this.difficulty,       // difficulty of the quizz
+    super.key,
+    this.width = 150, // width of the box
+    this.height = 200, // height of the box
+    this.elevation = 2, // elevation's Shadow of the box
+    required this.title, // title of the quizz
+    required this.description, // description of the quizz
+    required this.category, // category of the quizz
+    required this.questionCount, // number of question of the quizz
+    required this.difficulty, // difficulty of the quizz
     this.onCloseButtonClick, // width of the box
   });
 
@@ -132,7 +130,9 @@ class QuizzPreviewerBox extends StatelessWidget {
             Row(
               children: [
                 Expanded(child: Text(title)),
-                IconButton(onPressed: onCloseButtonClick, icon: const Icon(Icons.close))
+                IconButton(
+                    onPressed: onCloseButtonClick,
+                    icon: const Icon(Icons.close))
               ],
             ),
 
@@ -143,7 +143,8 @@ class QuizzPreviewerBox extends StatelessWidget {
             )),
             // footer
             Container(
-              decoration: const BoxDecoration(border: Border(top: BorderSide())),
+              decoration:
+                  const BoxDecoration(border: Border(top: BorderSide())),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -158,10 +159,9 @@ class QuizzPreviewerBox extends StatelessWidget {
                     bText: questionCount.toString(),
                   ),
                   _itemColumn3(
-                    iconData: Icons.work,
-                    cText: "Difficulte : ",
-                    bText: difficulty
-                  ),
+                      iconData: Icons.work,
+                      cText: "Difficulte : ",
+                      bText: difficulty),
                 ],
               ),
             )
@@ -174,19 +174,21 @@ class QuizzPreviewerBox extends StatelessWidget {
 
 Widget _itemColumn3({
   required IconData iconData,
-  double iconSize = 20, 
-  required String cText, 
+  double iconSize = 20,
+  required String cText,
   required String bText,
-  double txtfontSize=13,
-  })  {
-
+  double txtfontSize = 13,
+}) {
   return Row(
     children: [
       Icon(iconData, size: iconSize),
-      Text(cText, style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: txtfontSize,
-      ),),
+      Text(
+        cText,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: txtfontSize,
+        ),
+      ),
       Text(bText)
     ],
   );
