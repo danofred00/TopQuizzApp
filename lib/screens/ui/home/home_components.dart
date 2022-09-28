@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_quizz_project/screens/ui/ui_components.dart';
 
 class QuizzStatsPreviewer extends StatelessWidget {
   final String imagePath;
@@ -9,9 +10,6 @@ class QuizzStatsPreviewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    // _showImage var
-    bool _showImage = imagePath.isEmpty ? false : true;
 
     return Row(
       children: [
@@ -36,29 +34,7 @@ class QuizzStatsPreviewer extends StatelessWidget {
         ),
 
         */
-        Container(
-          alignment: Alignment.center,
-          width: 100,
-          height: 100,
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-              image: !_showImage
-                  ? null
-                  : DecorationImage(
-                      image: AssetImage(imagePath),
-                    )),
-          child: !_showImage
-              ? Text(
-                  username[0],
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold),
-                )
-              : null,
-        ),
+        quizzCircleAvatar(imagePath: 'images/user-default.png'),
 
         //*/
 

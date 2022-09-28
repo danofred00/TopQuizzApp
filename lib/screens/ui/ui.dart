@@ -9,6 +9,9 @@ class UiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      drawer: quizzDrawerMenu(context, 0.0),
+
       appBar: myAppBar(
         'TopQuizz', 
         onPressedMenu: (){},
