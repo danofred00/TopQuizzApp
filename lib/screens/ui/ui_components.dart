@@ -60,7 +60,21 @@ Widget quizzDrawerMenu(BuildContext context, double padding,
             )),
 
         // additionals boxes
-        
+        SingleChildScrollView(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            quizzItemColumn3(iconData: Icons.home, cText: "Acceuil", bText: ""),
+            quizzItemColumn3(
+                iconData: Icons.search, cText: "Rechercher", bText: ""),
+            quizzItemColumn3(
+                iconData: Icons.settings, cText: "Parametre", bText: ""),
+            quizzItemColumn3(
+                iconData: Icons.share, cText: "Partagez", bText: ""),
+            quizzItemColumn3(
+                iconData: Icons.star, cText: "Nous Soutenir", bText: ""),
+          ],
+        ))
       ],
     ),
   );
@@ -69,23 +83,21 @@ Widget quizzDrawerMenu(BuildContext context, double padding,
 ////////////////////////////////////////////
 // MyCustom Drawer HeaderBar
 Widget quizzDrawerHeader({
-  required String imagePath, 
-  required Widget topText, 
+  required String imagePath,
+  required Widget topText,
   required Widget bottomText,
   Color bgColor = Colors.blue,
-  }){
-
+}) {
   return Container(
     decoration: BoxDecoration(
-      color: bgColor,
-      borderRadius: const BorderRadius.only(
-        bottomLeft: Radius.circular(150),
-        bottomRight: Radius.circular(150))
-    ),
+        color: bgColor,
+        borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(150),
+            bottomRight: Radius.circular(150))),
     child: Column(
       children: <Widget>[
         DrawerHeader(
-            child: Container(
+          child: Container(
               margin: const EdgeInsets.only(top: 50),
               padding: EdgeInsets.zero,
               child: quizzCircleAvatar(imagePath: imagePath)),
@@ -93,19 +105,15 @@ Widget quizzDrawerHeader({
 
         //////
         Container(
-                  height: 150,
-                child: Column(
-                  children: <Widget>[
-                    topText,
-                    bottomText
-                  ],
-                ),
-              ),
+          height: 150,
+          child: Column(
+            children: <Widget>[topText, bottomText],
+          ),
+        ),
       ],
     ),
   );
 }
-
 
 /////////////////////////////////////////////
 // My Custom Circle Avatar
@@ -147,5 +155,42 @@ Widget quizzCircleAvatar({
             )
           : null,
     ),
+  );
+}
+
+/////////////////
+Widget quizzItemColumn3({
+  required IconData iconData,
+  double iconSize = 20,
+  required String cText,
+  required String bText,
+  double txtfontSize = 13,
+}) {
+  return Row(
+    children: [
+      Icon(iconData, size: iconSize),
+      Text(
+        cText,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: txtfontSize,
+        ),
+      ),
+      Text(bText)
+    ],
+  );
+}
+
+////////////////////////
+Widget quizzBottomNavigationBar({int currentIndex = 0, Function(int)? onTap}) {
+  return BottomNavigationBar(
+    currentIndex: currentIndex,
+    onTap: onTap,
+    elevation: 1.5,
+    items: <BottomNavigationBarItem>[
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Acceuil"),
+      BottomNavigationBarItem(icon: Icon(Icons.search), label: "Recherche"),
+      BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Parametre")
+    ],
   );
 }

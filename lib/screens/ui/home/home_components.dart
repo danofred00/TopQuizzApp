@@ -6,7 +6,7 @@ class QuizzStatsPreviewer extends StatelessWidget {
   final String username;
   final String email;
   const QuizzStatsPreviewer(
-      {this.imagePath = '', required this.username, required this.email});
+      {this.imagePath = '', required this.username, required this.email, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +50,11 @@ class QuizzStatsPreviewer extends StatelessWidget {
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
               Text(email),
-              _itemColumn3(
+              quizzItemColumn3(
                   cText: " Nombre de quizz joué(s) : ",
                   bText: "5",
                   iconData: Icons.numbers),
-              _itemColumn3(
+              quizzItemColumn3(
                   cText: " Points accumulés : ",
                   bText: "100",
                   iconData: Icons.account_tree_outlined),
@@ -124,17 +124,17 @@ class QuizzPreviewerBox extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _itemColumn3(
+                  quizzItemColumn3(
                     iconData: Icons.category,
                     cText: "Categorie : ",
                     bText: category,
                   ),
-                  _itemColumn3(
+                  quizzItemColumn3(
                     iconData: Icons.numbers,
                     cText: "Nbrs de Question : ",
                     bText: questionCount.toString(),
                   ),
-                  _itemColumn3(
+                  quizzItemColumn3(
                       iconData: Icons.work,
                       cText: "Difficulte : ",
                       bText: difficulty),
@@ -148,24 +148,3 @@ class QuizzPreviewerBox extends StatelessWidget {
   }
 }
 
-Widget _itemColumn3({
-  required IconData iconData,
-  double iconSize = 20,
-  required String cText,
-  required String bText,
-  double txtfontSize = 13,
-}) {
-  return Row(
-    children: [
-      Icon(iconData, size: iconSize),
-      Text(
-        cText,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: txtfontSize,
-        ),
-      ),
-      Text(bText)
-    ],
-  );
-}

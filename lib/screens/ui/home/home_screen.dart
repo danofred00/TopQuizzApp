@@ -31,6 +31,34 @@ List<Map<String, dynamic>> _UserQuizzList = [
     'difficulty':'medium',
     'category': 'Maths'
   },
+  {
+    'title': "Example 1",
+    'description': "description 1",
+    'question_count':10,
+    'difficulty':'easy',
+    'category': 'Informatique'
+  },
+  {
+    'title': "Example 2",
+    'description': "description 2",
+    'question_count':10,
+    'difficulty':'medium',
+    'category': 'Maths'
+  },
+  {
+    'title': "Example 3",
+    'description': "description 3",
+    'question_count':10,
+    'difficulty':'easy',
+    'category': 'Informatique'
+  },
+  {
+    'title': "Example 4",
+    'description': "description 4",
+    'question_count':10,
+    'difficulty':'medium',
+    'category': 'Maths'
+  },
 ];
 
 String username = "Dano Fred";
@@ -51,8 +79,8 @@ class _UiHomePageState extends State<UiHomePage> {
 
         // container pour les stats
         Container(
-          margin: EdgeInsets.only(bottom: 20),
-          padding: EdgeInsets.symmetric(vertical: 10),
+          margin: const EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: QuizzStatsPreviewer(
             username: username,
             email: email,
